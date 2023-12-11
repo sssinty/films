@@ -3,18 +3,13 @@ import Star from './Star';
 interface Props {
   count: number
 }
-function  Stars (props : Props){
-  if(props.count < 1 || props.count > 5) {
+function  Stars ({count = 0} : Props) {
+  if(count < 1 || count > 5) {
     return
   } 
   return <ul className="card-body-stars u-clearfix">
-    {[...Array(props.count)].map((item, i) => {return <Star key={i}/>})}
+    {[...Array(count)].map((item, i) => (<Star key={i}/>))}
   </ul>
 
 }
-
-Stars.defaultProps = {
-  count : 0
-}
-
 export default Stars;
